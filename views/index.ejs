@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Page</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('./partials/_navbar.ejs') %>
+
   <% if (user) { %>
     <h1>Welcome to the Pantry, <%= user.username %>!</h1>
+
     <p>
-      <a href="/auth/sign-out">Sign out</a>
+      <a href="/users/<%= user._id %>/foods">View My Pantry</a>
     </p>
+    <p>
+      <a href="/users/<%= user._id %>/foods/new">Add New Food</a>
+    </p>
+    <p>
+      <a href="/users">View All Users</a>
+    </p>
+    <p>
+      <a href="/auth/sign-out">Sign Out</a>
+    </p>
+
   <% } else { %>
     <h1>Welcome to the Pantry, guest.</h1>
     <p>
@@ -19,6 +32,5 @@
       <a href="/auth/sign-in">Sign in</a>.
     </p>
   <% } %>
-  <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
 </body>
 </html>

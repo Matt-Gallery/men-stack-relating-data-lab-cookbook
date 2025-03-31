@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= user.username %>'s Pantry</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+
+  <h1><%= user.username %>'s Pantry</h1>
+
+  <% if (foods && foods.length > 0) { %>
+    <ul>
+      <% foods.forEach((food) => { %>
+        <li>
+          <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+            <strong><%= food.name %></strong> — <%= food.quantity %> pcs @ $<%= food.price.toFixed(2) %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>This user has no food items in their pantry.</p>
+  <% } %>
+
+  <p><a href="/users">← Back to all users</a></p>
+</body>
+</html>

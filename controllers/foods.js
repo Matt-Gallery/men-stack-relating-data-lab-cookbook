@@ -1,3 +1,5 @@
+// Used ChatGPT throughout
+
 import express from "express";
 import User from "../models/user.js";
 
@@ -56,8 +58,6 @@ router.post("/", async (req, res) => {
     res.redirect(`/users/${req.session.user._id}/foods`);
   }
 });
-
-
 
 // GET - Show a specific food item
 router.get("/:foodId", async (req, res) => {
@@ -138,6 +138,5 @@ router.delete("/:foodId", async (req, res) => {
     res.redirect(`/users/${req.session.user._id}/foods`);
   }
 });
-
 
 export default router;
