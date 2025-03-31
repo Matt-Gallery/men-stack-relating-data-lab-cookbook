@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+    <title><%= food.name %></title>
+  </head>
+  <body>
+    <div class="show-body">
+      <div class="show-header">
+        <h1><%= food.name %></h1>
+      </div>
+
+      <div class="show-details">
+        <p><strong>Calories:</strong> <%= food.calories %></p>
+        <p><strong>Price:</strong> $<%= food.price.toFixed(2) %></p>
+        <p><strong>Quantity:</strong> <%= food.quantity %></p>
+      </div>
+
+      <div class="show-actions-bottom">
+        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">
+          Edit Item
+        </a>
+        <form
+          action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline;"
+        >
+          <button type="submit">Delete Item</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
